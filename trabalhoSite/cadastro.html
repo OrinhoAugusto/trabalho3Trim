@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastre-se</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="all">
+        <h2>Faça o cadastro</h2>
+        <div class="div1">
+            <p id="par">Nome de usuário</p>
+            <input id="usuario" type="text" placeholder="Usuário">
+        </div>
+        <div class="div1">
+            <p id="par">Senha</p>
+            <input id="senha" type="password" placeholder="Senha">
+        </div>
+        <div class="div1 div_button">
+            <button onclick="cadastrar()">Cadastrar</button>
+        </div>
+        <p id=""></p>
+
+    </div>
+    <script>
+        const cadastrar = () => {
+            valor1 = document.getElementById('usuario').value
+            valor2 = document.getElementById('senha').value
+
+            while (valor1 == "" || valor2 == "") {
+                alert("Valores inválidos.")
+            }
+            
+            let localName = localStorage.ListUsuario;
+            let lista;
+            let existe = false;
+
+            if (!localName) {
+                localStorage.ListUsuario = ""
+                lista = [];
+            } else {
+                lista = JSON.parse(localName);
+            }
+            
+            if (!existe) { 
+                list.push([valor1, valor2])
+                localStorage.setItem("ListUsuario", JSON.stringify(lista))
+                location.href = "login.html"
+            } else {
+                alert("Usuário já existente.")
+            }
+        }
+    </script>
+</body>
+</html>
